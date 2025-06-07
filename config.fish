@@ -27,8 +27,8 @@ function pyth3.9
 end
 
 function pyenv
-    cd ~/pyth
-    source ./vebstm/bin/activate
+    cd /root/work/myenv/bin
+    source ./activate.fish
     cd -
 end
 
