@@ -2,7 +2,6 @@
 set -gx PATH /projects/hnd/tools/linux/bin $PATH
 set -gx PATH /home/ktkim/.local/bin $PATH
 set -gx PYTHON_EXE (which python3)
-
 # 언어 설정
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US:en
@@ -45,6 +44,10 @@ function pythvenv
     source ./vebstm/bin/activate
 end
 
+# jupyter 노트북 관련 함수
+function jup
+    jupyter notebook --allow-root
+end
 # 기타 함수
 function cmakeversion
     sudo update-alternatives --config cmake
@@ -228,7 +231,7 @@ function nd
 end
 
 function nsh
-    nvim ~/shjung3-command.sh
+    nvim ~/tae_command.sh
 end
 
 function nfish
