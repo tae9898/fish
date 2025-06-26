@@ -1,8 +1,10 @@
 # PATH 설정
 set -gx PATH /projects/hnd/tools/linux/bin $PATH
 set -gx PATH /home/ktkim/.local/bin $PATH
+set -gx PATH $PATH ~/.cargo/bin
 set -gx PYTHON_EXE (which python3)
-
+set -gx NVM_DIR "$HOME/.nvm"
+set -gx PATH "$HOME/.cargo/bin" $PATH
 # 언어 설정
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US:en
@@ -28,8 +30,12 @@ end
 
 function pyenv
     cd ~/pyth
-    source ./vebstm/bin/activate
+    source ./vebstm/bin/activate.fish
     cd -
+end
+
+function jup
+jupyter lab --ip=0.0.0.0 --port=4444
 end
 
 function pyth3.8
@@ -42,7 +48,7 @@ function pythvenvset
 end
 
 function pythvenv
-    source ./vebstm/bin/activate
+    source ./vebstm/bin/activate.fish
 end
 
 # 기타 함수
@@ -63,6 +69,9 @@ function mk100
     make PROFILE=HMX_HNW100_CTC 2> compile_log
 end
 
+function bmk2g
+    bear make PROFILE=HMX_HPS11_2G_AIS all 2> compile_log
+end
 function mk2g
     make PROFILE=HMX_HPS11_2G_AIS all 2> compile_log
 end
@@ -91,6 +100,31 @@ function mk820
     make PROFILE=HMX_HP820_CTC 2> compile_log
 end
 
+function mk920
+    make PROFILE=HMX_HP920 2> compile_log
+
+end
+
+function bmk920v
+    bear make PROFILE=HMX_HP920V 2> compile_log
+
+end
+function bmk920vsmp
+    bear make PROFILE=HMX_HP920V_SMP 2> compile_log
+
+end
+function bmk920
+    bear make PROFILE=HMX_HP920 2> compile_log
+end
+
+function mk920catv
+    make PROFILE=HMX_HP920_CATV 2> compile_log
+
+end
+function bmk920catv
+    bear make PROFILE=HMX_HP920_CATV 2> compile_log
+
+end
 function mkpf30
     make PROFILE=HMX_HPF30_SMP_LIWEST_AT 2> compile_log
 end
@@ -194,11 +228,15 @@ end
 function cdai
     cd ~/base_/ai_leo/leo
 end
-
+function cdids
+    cd /home/ktkim/pyth/IDS/Intrusion-Detection-System
+end
 function cdaiai
     cd ~/base_/ai_leo/leo/packages/ai/
 end
-
+function cdnft
+    cd ~/base_/nft_leo/leo
+end
 function cdlogs
     cd ~/console/logs/
 end
@@ -316,7 +354,6 @@ end
 # bear 관련 함수
 function bmk820xgs
     bear make PROFILE=HMX_HP820_XGS_SMP 2> compile_log
-    img
 end
 
 function bmk820ctc
@@ -358,7 +395,6 @@ end
 function bmk7236
     bear make PROFILE=HMX_HA7236B_SMP 2>compile_log
 end
-
 # cd 명령어가 디렉토리에서만 작동하도록 설정
 # Fish에서는 complete -d cd 대신 다음과 같이 설정
 complete -c cd -f -a "(__fish_complete_directories)"
