@@ -173,6 +173,10 @@ end
 function cdd
     cd ..
 end
+function q
+    cd .
+end
+
 
 function cddd
     cd ../..
@@ -192,6 +196,9 @@ end
 
 function cdleo
     cd ~/base_/leo
+end
+function cdids
+    cd /root/work/ids/Intrusion-Detection-System
 end
 
 function cdai
